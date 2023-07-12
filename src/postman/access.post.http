@@ -1,0 +1,273 @@
+ @url_dev = http://localhost:3056/v1/api
+
+POST {{url_dev}}/shop/signup
+Content-Type: application/json 
+x-api-key: 2fe67e87f7fd5313adfd9bea6d80928faea03171e4d29708fbd7dc3b16189c19545b37f14f568ea396cb3e832fc408d4756fd49243ae0bf21aec4cf7d311dec0
+
+{
+    "name": "12",
+    "email": "12",
+    "password": "1"
+}
+
+###
+
+POST {{url_dev}}/shop/login
+Content-Type: application/json
+x-api-key: 2fe67e87f7fd5313adfd9bea6d80928faea03171e4d29708fbd7dc3b16189c19545b37f14f568ea396cb3e832fc408d4756fd49243ae0bf21aec4cf7d311dec0
+
+{
+    "email": "121",
+    "password": "1"
+}
+
+
+###
+post {{url_dev}}/shop/handleRefreshToken
+Content-Type: application/json
+x-api-key: 2fe67e87f7fd5313adfd9bea6d80928faea03171e4d29708fbd7dc3b16189c19545b37f14f568ea396cb3e832fc408d4756fd49243ae0bf21aec4cf7d311dec0
+x-client-id: 64a7ca6fe380b7a18d16aaba
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE3Y2E2ZmUzODBiN2ExOGQxNmFhYmEiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4OTE0OTE4NywiZXhwIjoxNjg5MzIxOTg3fQ.xT6t9wvIH9CyKGKtRX99cTlCmez8wvjgk0Z-Rd7BgJs
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE3Y2E2ZmUzODBiN2ExOGQxNmFhYmEiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4OTE0OTE4NywiZXhwIjoxNjg5NzUzOTg3fQ.nPrYZgt9PG_bvaPBfyyS4w4Ob0z1a8crpHWvAcj62xc"
+}
+###
+POST {{url_dev}}/shop/update_verify/6479a1c5f7eea24100662fa8
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+
+
+###
+POST {{url_dev}}/product/delete/646f52c65caeac0dd7587af2
+Content-Type: application/json
+x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
+x-client-id: 645f78f0ff400061f37e430d
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODUwMjUzNTUsImV4cCI6MTY4NTE5ODE1NX0.T6mj2OTNpaKHNjFJ70n_2mE_bdntDlg7IIGbtJV1x5s
+
+###
+Get {{url_dev}}/users/userId/647e985dfc08161cc7e7f7da
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 647e911bdc92e18f3fcc4c5b
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdlOTExYmRjOTJlMThmM2ZjYzRjNWIiLCJlbWFpbCI6IjEiLCJpYXQiOjE2ODYwMTgyNzUsImV4cCI6MTY4NjE5MTA3NX0.g52r9TkcTelv5LWZRe7LJmSN9VGRm5qtMt9ljjQFul8
+
+###
+post {{url_dev}}/users/update/64799ce7f7eea24100662fa3
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 647e911bdc92e18f3fcc4c5b
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdlOTExYmRjOTJlMThmM2ZjYzRjNWIiLCJlbWFpbCI6IjEiLCJpYXQiOjE2ODYwNDAxOTgsImV4cCI6MTY4NjIxMjk5OH0.-pK735fCN67RTpHJMuV2CzUJ-UMZ_sZg5TlrIcEpG_o
+
+
+###
+POST {{url_dev}}/product
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODU3NjE1NjYsImV4cCI6MTY4NTkzNDM2Nn0.tZdoKz7eUYuF9I55TQ8ZofT9UmcLyjwal4aIMPMJNQk
+
+{
+    "product_name": "a3",
+    "product_thumb": "https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/328709559_1481611285700057_6150010650656469516_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=fmx6JHWykFEAX9Se7u7&_nc_ht=scontent.fhan14-2.fna&oh=00_AfCqbWGZIlu7d3XAuwFNBUBWxf0vzb52J0ccINks73Wd1g&oe=64739334", 
+    "product_description": "aa",
+    "product_price": 300,
+    "product_type": "Electronics",
+    "product_quantity": 5,
+    "product_attributes": {
+        "manufacturer": "quy",
+        "size": "L",
+        "color": "Denim"
+}
+}
+
+###
+patch {{url_dev}}/product/647ad99fa2683e783337276d
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODc3MDE1MTQsImV4cCI6MTY4Nzg3NDMxNH0.JXIRq37eIRowz178jphCuBHZjCMFL91ZHYaulRVYEo4
+
+{
+    "product_name": "test101",
+    "product_thumb": "123a", 
+    "product_description": "aa",
+    "product_price": 600,
+    "product_type": "Electronics",
+    "product_quantity": 5,
+    "product_attributes": {
+        "manufacturer": "quy",
+        "size": "L",
+        "color": "Denim"
+}
+}
+
+###
+get {{url_dev}}/cart/shopId/645f78f0ff400061f37e430d
+Content-Type: application/json
+x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
+x-client-id: 645f78f0ff400061f37e430d
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODUwNzI0ODcsImV4cCI6MTY4NTI0NTI4N30.ZTVjO1czM7Cu9YMJN15ESeliDS0PeKo3gVuCPmaFZR8
+
+
+###
+get {{url_dev}}/cart?userId=645f77c72b38802e12f7b580
+Content-Type: application/json
+x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
+x-client-id: 645f78f0ff400061f37e430d
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODUwNzI0ODcsImV4cCI6MTY4NTI0NTI4N30.ZTVjO1czM7Cu9YMJN15ESeliDS0PeKo3gVuCPmaFZR8
+
+{
+       "userId": "645f77c72b38802e12f7b580"
+}
+
+###
+post {{url_dev}}/cart
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODU2OTk2NTIsImV4cCI6MTY4NTg3MjQ1Mn0.cZlvWwze3dVXohX0jMHmON991rzntOa24bBa2p0dAf0
+
+{
+       "userId": "645f77c72b38802e12f7b580",
+       "shopId": "645f78f0ff400061f37e430d",
+        "product" : {
+        "productId": "646f535f5caeac0dd7587b17",
+        "product_name": "test101",
+        "product_thumb": "123a", 
+        "product_description": "aa",
+        "product_price": 600,
+        "product_type": "Electronics",
+        "product_attributes": {
+            "manufacturer": "quy",
+            "size": "L",
+            "color": "Denim"
+        },
+        "quantity": 1
+
+    }
+}
+
+###
+get {{url_dev}}/transaction/shopId/64799ce7f7eea24100662fa3
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 64799ce7f7eea24100662fa3
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5OWNlN2Y3ZWVhMjQxMDA2NjJmYTMiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4NzE4NTcyOSwiZXhwIjoxNjg3MzU4NTI5fQ.GUDiPZ5nOFheZkKfMCx4Fhc-ePJZlAz-SnvSfUgo1Rc
+
+
+###
+post {{url_dev}}/transaction
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODU2OTk2NTIsImV4cCI6MTY4NTg3MjQ1Mn0.cZlvWwze3dVXohX0jMHmON991rzntOa24bBa2p0dAf0
+
+{
+       "user": {
+        "userId": "645f77c72b38802e12f7b580",
+        "name": "test"
+       },
+       "shopId": "645f78f0ff400061f37e430d",
+        "product" : {
+        "productId": "646f535f5caeac0dd7587b17",
+        "product_name": "test101",
+        "product_thumb": "123a", 
+        "product_description": "aa",
+        "product_price": 600,
+        "product_type": "Electronics",
+        "product_attributes": {
+            "manufacturer": "quy",
+            "size": "L",
+            "color": "Denim"
+        },
+        "quantity": 1
+
+    }
+}
+
+###
+post {{url_dev}}/cart/update
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 64799ce7f7eea24100662fa3
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5OWNlN2Y3ZWVhMjQxMDA2NjJmYTMiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4Nzg3NTYzNCwiZXhwIjoxNjg4MDQ4NDM0fQ.tFZdU7I_19csom3R87n1Jss87jLVSIMSA3Jj0bBlVG8
+
+{
+       "userId": "6479a1c5f7eea24100662fa8",
+        "shop_order_ids": [
+            {
+                "shopId": "64799ce7f7eea24100662fa3",
+                "productId": "647ad9b7a2683e7833372790",
+        "quantity": 5,
+            "old_quantity": 2
+            }
+        ]
+}
+
+###
+DELETE {{url_dev}}/cart
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 64799ce7f7eea24100662fa3
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5OWNlN2Y3ZWVhMjQxMDA2NjJmYTMiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4Nzg3NTYzNCwiZXhwIjoxNjg4MDQ4NDM0fQ.tFZdU7I_19csom3R87n1Jss87jLVSIMSA3Jj0bBlVG8
+
+{
+       "userId": "64799ce7f7eea24100662fa3",
+        "productId": "646f753039f5d89afe083561"
+}
+
+
+###
+get {{url_dev}}/product/byId/6479a9948be9027f2a0e2365
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODU2OTY2OTUsImV4cCI6MTY4NTg2OTQ5NX0.KR8zBG3LpzP2c3qq3xVq_CgrYbWY-a9YKA1T57LrmeM
+
+# {
+#     "product_name": "test100",
+#     "product_thumb": "123a", 
+#     "product_description": "aa",
+#     "product_price": 600,
+#     "product_type": "Electronics",
+#     "product_quantity": 5,
+#     "product_attributes": {
+#         "manufacturer": "quy",
+#         "size": "L",
+#         "color": "Denim"
+# }
+# }
+
+
+###
+GET  {{url_dev}}/product/published/all
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODczNjUxMjQsImV4cCI6MTY4NzUzNzkyNH0.NwN6xD1YWGm7cl6K8vOmk6EB0NSijs20KVxrbeRak8g
+
+
+
+###
+GET  {{url_dev}}/product/1
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+
+
+###
+Post  {{url_dev}}/product/publish/645fa639ff400061f37e4321
+Content-Type: application/json
+x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
+x-client-id: 645f78f0ff400061f37e430d
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODQwNzcxNTksImV4cCI6MTY4NDI0OTk1OX0.7OY47G4Uo8pinYBCGG7M_Ck-zXJSNbs72TeIloeVckQ
+
+
+###
+POST {{url_dev}}/shop/logout
+Content-Type: application/json
+x-api-key: 2fe67e87f7fd5313adfd9bea6d80928faea03171e4d29708fbd7dc3b16189c19545b37f14f568ea396cb3e832fc408d4756fd49243ae0bf21aec4cf7d311dec0
+x-client-id: 64a7ca6fe380b7a18d16aaba
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE3Y2E2ZmUzODBiN2ExOGQxNmFhYmEiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4OTE0NzM3OCwiZXhwIjoxNjg5MzIwMTc4fQ.trGDvqaiI8W0avCLr2ymWzPTvRwkX3AvV7l03l6ZpUU
+
+
