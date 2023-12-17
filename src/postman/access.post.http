@@ -2,25 +2,47 @@
 
 POST {{url_dev}}/shop/signup
 Content-Type: application/json 
-x-api-key: 2fe67e87f7fd5313adfd9bea6d80928faea03171e4d29708fbd7dc3b16189c19545b37f14f568ea396cb3e832fc408d4756fd49243ae0bf21aec4cf7d311dec0
+x-api-key: de940ac5e7f01350b62ade467f356e3bfb1461304e227ca7084a77ce7859233e83643644860dbb64edbed99f936d79f1a8d82cf6513aaa90fbfd27b61195ab7a
 
 {
-    "name": "12",
-    "email": "12",
-    "password": "1"
+    "name": "admin",
+    "email": "admin",
+    "password": "admin"
 }
+
+
+###
+Get {{url_dev}}/book/getAll
+Content-Type: application/json
+x-api-key: de940ac5e7f01350b62ade467f356e3bfb1461304e227ca7084a77ce7859233e83643644860dbb64edbed99f936d79f1a8d82cf6513aaa90fbfd27b61195ab7a
+x-client-id: 657d3e90d1ac32569255dd26
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTdkM2U5MGQxYWMzMjU2OTI1NWRkMjYiLCJlbWFpbCI6ImFkbWluIiwiaWF0IjoxNzAyNzA3NzUwLCJleHAiOjE3MDI4ODA1NTB9.ilygLoz69ukin7DoojkiCzgNdHmGQiT6KSYjr6i1Ayc
 
 ###
 
 POST {{url_dev}}/shop/login
 Content-Type: application/json
-x-api-key: 2fe67e87f7fd5313adfd9bea6d80928faea03171e4d29708fbd7dc3b16189c19545b37f14f568ea396cb3e832fc408d4756fd49243ae0bf21aec4cf7d311dec0
+x-api-key: de940ac5e7f01350b62ade467f356e3bfb1461304e227ca7084a77ce7859233e83643644860dbb64edbed99f936d79f1a8d82cf6513aaa90fbfd27b61195ab7a
 
 {
-    "email": "121",
-    "password": "1"
+    "email": "admin",
+    "password": "admin"
 }
 
+
+###
+POST {{url_dev}}/book/createBook
+Content-Type: application/json
+x-api-key: de940ac5e7f01350b62ade467f356e3bfb1461304e227ca7084a77ce7859233e83643644860dbb64edbed99f936d79f1a8d82cf6513aaa90fbfd27b61195ab7a
+x-client-id: 657d3e90d1ac32569255dd26
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTdkM2U5MGQxYWMzMjU2OTI1NWRkMjYiLCJlbWFpbCI6ImFkbWluIiwiaWF0IjoxNzAyNzA3NzUwLCJleHAiOjE3MDI4ODA1NTB9.ilygLoz69ukin7DoojkiCzgNdHmGQiT6KSYjr6i1Ayc
+
+{
+    "name_book": "admin",
+    "number_of_remaining": 100,
+    "original_number": 90,
+    "type": "test"
+}
 
 ###
 post {{url_dev}}/shop/handleRefreshToken
