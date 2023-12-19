@@ -16,10 +16,10 @@ class BookController {
     }).send(res);
   };
 
-  deleteBook = async (req, res, next) => {
+  deleteTypeBook = async (req, res, next) => {
     new SuccessResponse({
       message: "Success",
-      metadata: await TypeBookService.deleteBook(req.params),
+      metadata: await TypeBookService.deleteTypeBook(req.params),
     }).send(res);
   };
 

@@ -92,12 +92,17 @@ class BookService {
 
   static async updateTraSach({ id }) {
     const query = { _id: id };
+
+    const existingBook = await borrowBooksModel.findOne(query);
+
     const updateSet = {
       $set: {
         payDay: new Date(),
-        status: "Đã trả",
+        status:
+          existingBook.paymentDate > new Date() ? "Đã trả" : "Mượn quá hạn",
       },
     };
+
     const updateCart = await borrowBooksModel.updateOne(query, updateSet);
 
     return updateCart;

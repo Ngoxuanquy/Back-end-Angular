@@ -19,8 +19,8 @@ router.get(
 
 router.post("/createTypeBook", asyncHandler(typeBookController.createTypeBook));
 router.delete(
-  "/deleteBook/:bookId",
-  asyncHandler(typeBookController.deleteBook)
+  "/deleteTypeBook/:typeId",
+  asyncHandler(typeBookController.deleteTypeBook)
 );
 
 router.post("/updateBook", asyncHandler(typeBookController.updateBook));

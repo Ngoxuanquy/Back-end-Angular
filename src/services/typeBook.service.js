@@ -28,10 +28,10 @@ class BookService {
     }
   };
 
-  static deleteBook = async ({ bookId }) => {
+  static deleteTypeBook = async ({ typeId }) => {
     try {
       const allData = await type_BookModel.deleteOne({
-        _id: bookId,
+        _id: typeId,
       });
       console.log("All data:", allData);
       return allData;

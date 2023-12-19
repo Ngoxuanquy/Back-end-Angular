@@ -69,12 +69,12 @@ class BookService {
     }
   };
 
-  static async updateBook({ id, name_book, number_of_remaining, type }) {
+  static async updateBook({ id, name_book, original_number, type }) {
     const query = { _id: id };
     const updateSet = {
       $set: {
         name_book,
-        number_of_remaining,
+        original_number,
         type,
       },
     };
