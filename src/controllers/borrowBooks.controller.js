@@ -1,25 +1,25 @@
 const { CREATED, SuccessResponse } = require("../core/success.response");
-const BookService = require("../services/book.service");
+const BorrowBooksService = require("../services/borrowBooks.service");
 
 class BookController {
   getAll = async (req, res, next) => {
     new SuccessResponse({
       message: "Logout success",
-      metadata: await BookService.getAll(req.params),
+      metadata: await BorrowBooksService.getAll(req.params),
     }).send(res);
   };
 
-  createBook = async (req, res, next) => {
+  createBorrowBook = async (req, res, next) => {
     new SuccessResponse({
       message: "Success",
-      metadata: await BookService.createBook(req.body),
+      metadata: await BorrowBooksService.createBorrowBook(req.body),
     }).send(res);
   };
 
   deleteBook = async (req, res, next) => {
     new SuccessResponse({
       message: "Success",
-      metadata: await BookService.deleteBook(req.params),
+      metadata: await BorrowBooksService.deleteBook(req.params),
     }).send(res);
   };
 
@@ -27,7 +27,7 @@ class BookController {
     console.log(req.body);
     new CREATED({
       message: "Register OK",
-      metadata: await BookService.searchNameBook(req.params),
+      metadata: await BorrowBooksService.searchNameBook(req.params),
     }).send(res);
 
     // return res.status(201).json(await AccessService.signUp(req.body))
@@ -37,24 +37,27 @@ class BookController {
     console.log(req.body);
     new CREATED({
       message: "Register OK",
-      metadata: await BookService.searchTypeBook(req.params),
+      metadata: await BorrowBooksService.searchTypeBook(req.params),
     }).send(res);
 
     // return res.status(201).json(await AccessService.signUp(req.body))
   };
-  updateBook = async (req, res, next) => {
-    console.log(req.params);
-    new SuccessResponse({
-      message: "update book success",
-      metadata: await BookService.updateBook(req.body),
+
+  searchNameUser = async (req, res, next) => {
+    console.log(req.body);
+    new CREATED({
+      message: "Register OK",
+      metadata: await BorrowBooksService.searchNameUser(req.params),
     }).send(res);
+
+    // return res.status(201).json(await AccessService.signUp(req.body))
   };
 
-  updateBookQuantity = async (req, res, next) => {
+  updateTraSach = async (req, res, next) => {
     console.log(req.params);
     new SuccessResponse({
       message: "update book success",
-      metadata: await BookService.updateBookQuantity(req.body),
+      metadata: await BorrowBooksService.updateTraSach(req.body),
     }).send(res);
   };
 }

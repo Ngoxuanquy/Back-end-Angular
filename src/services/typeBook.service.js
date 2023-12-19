@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const { createTokenPair, verifyJWT } = require("../auth/authUtils");
-const bookModel = require("../models/book.model");
+const type_BookModel = require("../models/typeBook.model");
 const KeyTokenService = require("./keyToken.service");
 const { getInfoData } = require("../utils");
 const {
@@ -17,7 +17,7 @@ class BookService {
       const pageSize = 20; // Number of items per page
       const skip = (page - 1) * pageSize; // Calculate the number of items to skip
 
-      const allData = await bookModel.find({}).skip(skip).limit(pageSize);
+      const allData = await type_BookModel.find({}).skip(skip).limit(pageSize);
       console.log("All data:", allData);
 
       return allData;
@@ -30,7 +30,7 @@ class BookService {
 
   static deleteBook = async ({ bookId }) => {
     try {
-      const allData = await bookModel.deleteOne({
+      const allData = await type_BookModel.deleteOne({
         _id: bookId,
       });
       console.log("All data:", allData);
@@ -44,7 +44,7 @@ class BookService {
       const regex = new RegExp(textSearch, "i");
 
       // Sử dụng `find` trực tiếp mà không cần chuyển đổi thành mảng bằng `toArray`
-      const results = await bookModel
+      const results = await type_BookModel
         .find({ name_book: { $regex: regex } })
         .exec();
 
@@ -60,7 +60,9 @@ class BookService {
       const regex = new RegExp(textSearch, "i");
 
       // Sử dụng `find` trực tiếp mà không cần chuyển đổi thành mảng bằng `toArray`
-      const results = await bookModel.find({ type: { $regex: regex } }).exec();
+      const results = await type_BookModel
+        .find({ type: { $regex: regex } })
+        .exec();
 
       console.log(results);
       return results;
@@ -78,7 +80,7 @@ class BookService {
         type,
       },
     };
-    const updateCart = await bookModel.updateOne(query, updateSet);
+    const updateCart = await type_BookModel.updateOne(query, updateSet);
 
     return updateCart;
   }
@@ -87,7 +89,7 @@ class BookService {
     const query = { _id: id };
 
     // Tìm thông tin sách
-    const existingBook = await bookModel.findOne(query);
+    const existingBook = await type_BookModel.findOne(query);
 
     console.log({ existingBook });
 
@@ -109,32 +111,19 @@ class BookService {
     };
 
     // Thực hiện cập nhật
-    const updateCart = await bookModel.updateOne(query, updateSet);
+    const updateCart = await type_BookModel.updateOne(query, updateSet);
 
     return updateCart;
   }
 
-  static createBook = async ({
-    name_book,
-    type,
-    number_of_remaining,
-    original_number,
-  }) => {
+  static createTypeBook = async ({ name_type }) => {
     try {
-      const newShop = await bookModel.create({
-        name_book,
-        type,
-        number_of_remaining,
-        original_number,
+      const newShop = await type_BookModel.create({
+        type_Book: name_type,
       });
 
       return {
-        books: getInfoData([
-          "name_book",
-          "type",
-          "number_of_remaining",
-          "original_number",
-        ]),
+        books: newShop,
       };
     } catch (error) {
       return {

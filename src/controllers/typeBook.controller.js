@@ -1,25 +1,25 @@
 const { CREATED, SuccessResponse } = require("../core/success.response");
-const BookService = require("../services/book.service");
+const TypeBookService = require("../services/typeBook.service");
 
 class BookController {
   getAll = async (req, res, next) => {
     new SuccessResponse({
       message: "Logout success",
-      metadata: await BookService.getAll(req.params),
+      metadata: await TypeBookService.getAll(req.params),
     }).send(res);
   };
 
-  createBook = async (req, res, next) => {
+  createTypeBook = async (req, res, next) => {
     new SuccessResponse({
       message: "Success",
-      metadata: await BookService.createBook(req.body),
+      metadata: await TypeBookService.createTypeBook(req.body),
     }).send(res);
   };
 
   deleteBook = async (req, res, next) => {
     new SuccessResponse({
       message: "Success",
-      metadata: await BookService.deleteBook(req.params),
+      metadata: await TypeBookService.deleteBook(req.params),
     }).send(res);
   };
 

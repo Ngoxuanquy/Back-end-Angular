@@ -2,11 +2,14 @@ const mongoose = require("mongoose"); // Erase if already required
 
 // Declare the Schema of the Mongo model
 
-const DOCUMENT_NAME = "Book";
-const COLLECTION_NAME = "Books";
+const DOCUMENT_NAME = "borrowBook";
+const COLLECTION_NAME = "borrowBooks";
 
 var bookSchema = new mongoose.Schema(
   {
+    bookId: {
+      type: String,
+    },
     name_book: {
       type: String,
       trim: true,
@@ -14,20 +17,32 @@ var bookSchema = new mongoose.Schema(
     },
     type: {
       type: String,
+      // unique: true,
+    },
+    use_name: {
+      type: String,
       required: true,
     },
-    number_of_remaining: {
+    phone_number: {
       type: Number,
       required: true,
     },
-    original_number: {
-      type: Number,
+    paymentDate: {
+      type: Date,
       required: true,
+    },
+    borrowed_Day: {
+      type: Date,
+      default: new Date(),
     },
     status: {
       type: String,
-      enum: ["active", "inactive"],
-      default: "active",
+      enum: ["Đang mượn", "Đã trả"],
+      default: "Đang mượn",
+    },
+    payDay: {
+      type: Date,
+      //   required: true,
     },
   },
   {

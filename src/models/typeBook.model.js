@@ -2,28 +2,21 @@ const mongoose = require("mongoose"); // Erase if already required
 
 // Declare the Schema of the Mongo model
 
-const DOCUMENT_NAME = "Book";
-const COLLECTION_NAME = "Books";
+const DOCUMENT_NAME = "typeBook";
+const COLLECTION_NAME = "typeBooks";
 
 var bookSchema = new mongoose.Schema(
   {
-    name_book: {
+    bookId: {
       type: String,
       trim: true,
       maxLength: 150,
     },
-    type: {
+    type_Book: {
       type: String,
-      required: true,
+      unique: true,
     },
-    number_of_remaining: {
-      type: Number,
-      required: true,
-    },
-    original_number: {
-      type: Number,
-      required: true,
-    },
+
     status: {
       type: String,
       enum: ["active", "inactive"],

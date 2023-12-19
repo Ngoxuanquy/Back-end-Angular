@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const { createTokenPair, verifyJWT } = require("../auth/authUtils");
-const bookModel = require("../models/book.model");
+const borrowBooksModel = require("../models/borrowBooks.model");
 const KeyTokenService = require("./keyToken.service");
 const { getInfoData } = require("../utils");
 const {
@@ -17,7 +17,10 @@ class BookService {
       const pageSize = 20; // Number of items per page
       const skip = (page - 1) * pageSize; // Calculate the number of items to skip
 
-      const allData = await bookModel.find({}).skip(skip).limit(pageSize);
+      const allData = await borrowBooksModel
+        .find({})
+        .skip(skip)
+        .limit(pageSize);
       console.log("All data:", allData);
 
       return allData;
@@ -30,7 +33,7 @@ class BookService {
 
   static deleteBook = async ({ bookId }) => {
     try {
-      const allData = await bookModel.deleteOne({
+      const allData = await borrowBooksModel.deleteOne({
         _id: bookId,
       });
       console.log("All data:", allData);
@@ -44,8 +47,24 @@ class BookService {
       const regex = new RegExp(textSearch, "i");
 
       // Sử dụng `find` trực tiếp mà không cần chuyển đổi thành mảng bằng `toArray`
-      const results = await bookModel
+      const results = await borrowBooksModel
         .find({ name_book: { $regex: regex } })
+        .exec();
+
+      console.log(results);
+      return results;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  static searchNameUser = async ({ textSearch }) => {
+    try {
+      const regex = new RegExp(textSearch, "i");
+
+      // Sử dụng `find` trực tiếp mà không cần chuyển đổi thành mảng bằng `toArray`
+      const results = await borrowBooksModel
+        .find({ use_name: { $regex: regex } })
         .exec();
 
       console.log(results);
@@ -60,7 +79,9 @@ class BookService {
       const regex = new RegExp(textSearch, "i");
 
       // Sử dụng `find` trực tiếp mà không cần chuyển đổi thành mảng bằng `toArray`
-      const results = await bookModel.find({ type: { $regex: regex } }).exec();
+      const results = await borrowBooksModel
+        .find({ type: { $regex: regex } })
+        .exec();
 
       console.log(results);
       return results;
@@ -69,72 +90,53 @@ class BookService {
     }
   };
 
-  static async updateBook({ id, name_book, number_of_remaining, type }) {
+  static async updateTraSach({ id }) {
     const query = { _id: id };
     const updateSet = {
       $set: {
-        name_book,
-        number_of_remaining,
-        type,
+        payDay: new Date(),
+        status: "Đã trả",
       },
     };
-    const updateCart = await bookModel.updateOne(query, updateSet);
+    const updateCart = await borrowBooksModel.updateOne(query, updateSet);
 
     return updateCart;
   }
 
-  static async updateBookQuantity({ id, quantity }) {
-    const query = { _id: id };
-
-    // Tìm thông tin sách
-    const existingBook = await bookModel.findOne(query);
-
-    console.log({ existingBook });
-
-    if (!existingBook) {
-      // Xử lý trường hợp không tìm thấy sách với id cung cấp
-      return { success: false, message: "Book not found." };
-    }
-
-    // Cập nhật số lượng
-    const updatedQuantity = existingBook.number_of_remaining - quantity;
-
-    console.log({ updatedQuantity });
-
-    // Cập nhật thông tin sách với số lượng mới
-    const updateSet = {
-      $set: {
-        number_of_remaining: Number(updatedQuantity),
-      },
-    };
-
-    // Thực hiện cập nhật
-    const updateCart = await bookModel.updateOne(query, updateSet);
-
-    return updateCart;
-  }
-
-  static createBook = async ({
+  static createBorrowBook = async ({
+    bookId,
     name_book,
     type,
-    number_of_remaining,
-    original_number,
+    use_name,
+    paymentDate,
+    status,
+    payDay,
+    phone_number,
   }) => {
     try {
-      const newShop = await bookModel.create({
+      const newShop = await borrowBooksModel.create({
+        bookId,
         name_book,
         type,
-        number_of_remaining,
-        original_number,
+        paymentDate,
+        use_name,
+        status,
+        payDay,
+        phone_number,
+      });
+
+      console.log({
+        name_book,
+        type,
+        use_name,
+        paymentDate,
+        status,
+        payDay,
+        phone_number,
       });
 
       return {
-        books: getInfoData([
-          "name_book",
-          "type",
-          "number_of_remaining",
-          "original_number",
-        ]),
+        books: newShop,
       };
     } catch (error) {
       return {
