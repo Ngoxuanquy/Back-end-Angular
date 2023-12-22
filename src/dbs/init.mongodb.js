@@ -1,45 +1,45 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.set('strictQuery', true);
+mongoose.set("strictQuery", true);
 
-const {
-    db: { host, port, name },
-} = require('../configs/config.mongodb');
+// const {
+//   db: { host, port, name },
+// } = require("../configs/config.mongodb");
 
 // nd6K6idrswJYN4cd
 // const connectString = `mongodb://${host}:${port}/${name}`
 const connectString =
-    'mongodb+srv://ngoquy18122002:GEJvXN9IuBbN3gQA@cluster0.v3zsfki.mongodb.net/?retryWrites=true&w=majority';
+  "mongodb+srv://ngoquy18122002:GEJvXN9IuBbN3gQA@cluster0.v3zsfki.mongodb.net/?retryWrites=true&w=majority";
 
-console.log('connectString::', connectString);
+console.log("connectString::", connectString);
 
-const { checkConnect } = require('../helpers/check.connect');
+const { checkConnect } = require("../helpers/check.connect");
 
 class Database {
-    constructor() {
-        this.connect();
+  constructor() {
+    this.connect();
+  }
+
+  connect(type = "mongodb") {
+    if (1 === 1) {
+      mongoose.set("debug", true);
+      mongoose.set("debug", { color: true });
+    }
+    mongoose
+      .connect(connectString)
+      .then((_) => {
+        console.log("Connected success", checkConnect());
+      })
+      .catch((err) => console.log(`Error Connect`, err));
+  }
+
+  static getInstance() {
+    if (!Database.instance) {
+      Database.instance = new Database();
     }
 
-    connect(type = 'mongodb') {
-        if (1 === 1) {
-            mongoose.set('debug', true);
-            mongoose.set('debug', { color: true });
-        }
-        mongoose
-            .connect(connectString)
-            .then((_) => {
-                console.log('Connected success', checkConnect());
-            })
-            .catch((err) => console.log(`Error Connect`, err));
-    }
-
-    static getInstance() {
-        if (!Database.instance) {
-            Database.instance = new Database();
-        }
-
-        return Database.instance;
-    }
+    return Database.instance;
+  }
 }
 
 const instanceMongodb = Database.getInstance();
